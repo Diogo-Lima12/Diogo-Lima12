@@ -19,8 +19,31 @@
 <div>
   <a href="target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the- badge&logo=instagram&logoColor=white" target="_blank"></a>
   <a href = "mailto:gemeos@devemdobro.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" alvo ="_blank"></a>
-  <a href="https://www.linkedin.com/in/ricardohdias" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style= for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
- 
-  ![Animação de cobra](https://github.com/devemdobro/diogo-lima12/blob/output/github-contribution-grid-snake.svg)
+  <a href="https://www.linkedin.com/in/ricardohdias" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style= for-the-badge&logo=linkedin&logoColor=white" target="_b
 
-</div>
+
+Nome : Gerar Dados
+
+em :
+  cronograma : # executar a cada 12 horas
+    - cron : " * */12 * * * "
+  workflow_dispatch :
+
+empregos :
+  construir :
+    nome : Jobs para atualizar dados
+    run-on : ubuntu-latest
+    passos :
+      # Animação de Cobra
+      - usa : Platane/snk@master
+        id : cobra-gif
+        com :
+          github_user_name : diogo
+          svg_out_path : dist/github-contribution-grid-snake.svg
+
+      - usa : crazy-max/ghaction-github-pages@v2.1.3
+        com :
+          target_branch : saída
+          build_dir : dist
+        ambiente :
+          GITHUB_TOKEN : ${{ segredos.GITHUB_TOKEN }}
